@@ -1,5 +1,7 @@
 # Sistema de Reconocimiento Facial
 
+---
+
 ## Introducción
 
 ### Integrantes
