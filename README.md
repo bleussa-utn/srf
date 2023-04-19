@@ -21,5 +21,3 @@ De manera similar, cuando un trabajador salga del edificio, el sistema registrar
 El sistema también contará con un panel de administración que permitirá a los administradores de la empresa gestionar la base de datos de los trabajadores y revisar los registros de entrada y salida. El panel de administración permitirá a los administradores generar informes y estadísticas sobre la asistencia de los trabajadores y la utilización del sistema.
 
 En resumen, el sistema de control de asistencia mediante reconocimiento facial permitirá a la empresa automatizar el proceso de control de asistencia de sus trabajadores y mejorar la seguridad del edificio al detectar actividades sospechosas. Además, el panel de administración proporcionará información valiosa sobre la asistencia de los trabajadores y la utilización del sistema.
---- PENDIENTE ---
---- CAMBIO DESDE GITBASH ---
