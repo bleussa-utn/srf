@@ -1,6 +1,5 @@
 # Sistema de Reconocimiento Facial
 
----
 
 ## Introducción
 
