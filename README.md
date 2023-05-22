@@ -16,7 +16,7 @@
   En nuestro proyecto, utilizamos Notion para documentar las diferentes peticiones y respuestas que hemos realizado a diferentes IAs. Creamos una base de datos en Notion y registramos las interacciones con diferentes IAs y para documentar los resultados de cada petición.
 
 - [Jira]()
-TEST
+ plataforma colaborativa que utilizaremos para trabajar de manera colaborativo en nuestro proyecto trabajando en tableros, creando y asignando tareas, además de poder realizar un seguimiento del progreso, establecer fechas límite, comunicarse 
 
 ## Descripción
 El proyecto de software consiste en desarrollar un sistema de control de asistencia de trabajadores mediante reconocimiento facial. El sistema permitirá a una empresa registrar y monitorear la entrada y salida de sus trabajadores de manera automatizada, lo que simplificará el proceso de control de asistencia y evitará la necesidad de utilizar tarjetas de identificación o registros manuales.
