@@ -28,7 +28,7 @@ def registro():
   passwordEntrada = Entry(pantallaRegistro, textvariable = password) #Creamos un text variable para que el usuario ingrese la contra
   passwordEntrada.pack()
   Label(pantallaRegistro, text = "").pack()  #Dejamos un espacio para la creacion del boton
-  Button(pantallaRegistro, text = "Registro Tradicional", width = 15, height = 1, command ="registrar_usuario").pack()  #Creamos el boton ToDO: agregar método funcion tradicional
+  Button(pantallaRegistro, text = "Registro Tradicional", width = 15, height = 1, command =registrar_usuario).pack()
     
     
   #------------ Vamos a crear el boton para hacer el registro facial --------------------
@@ -67,3 +67,30 @@ def registro_facial():
 
     userEntrada.delete(0, END)   #Limpiamos los text variables
     passwordEntrada.delete(0, END)
+
+    def reg_rostro(img, lista_resultados):
+        data = pyplot.imread(img)
+        for i in range(len(lista_resultados)):
+            cajas = lista_resultados[0][0]  # Obtener el primer array de la tupla
+            x1, y1, ancho, alto = cajas
+            y2 = y1 + alto
+            x2 = x1 + ancho
+
+            x1, y1, ancho, alto = int(x1), int(y1), int(ancho), int(alto)
+            x2, y2 = int(x2), int(y2)
+            cara_reg = data[y1:y2, x1:x2]
+
+            x2,y2 = x1 + ancho, y1 + alto
+            pyplot.subplot(1, len(lista_resultados), i+1)
+            pyplot.axis('off')
+            cara_reg = data[y1:y2, x1:x2]
+            cara_reg = cv2.resize(cara_reg,(150,200), interpolation = cv2.INTER_CUBIC) #Guardamos la imagen con un tamaño de 150x200
+            cv2.imwrite(usuario_img+".jpg",cara_reg)
+            pyplot.imshow(data[y1:y2, x1:x2])
+        pyplot.show()
+
+    img = usuario_img+".jpg"
+    pixeles = pyplot.imread(img)
+    detector = MTCNN()
+    caras = detector.detect(pixeles)
+    reg_rostro(img, caras)   
