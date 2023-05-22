@@ -1,0 +1,47 @@
+# Archivos y directorios generados por entornos virtuales
+venv/
+env/
+
+# Archivos de caché y registro
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Archivos generados por IDEs y editores de texto
+.vscode/
+.idea/
+*.swp
+*~
+
+# Directorios de datos de entrenamiento o modelos previamente generados
+trained_models/
+
+# Directorios de salida o resultados generados en tiempo de ejecución
+output/
+
+# Archivos de configuración con información sensible
+config.ini
+secrets.ini
+
+# Archivos de registros o bitácoras
+log/
+logs/
+
+# Archivos temporales
+*.tmp
+
+# Archivos de bases de datos
+*.db
+*.sqlite3
+
+# Archivos de imágenes o datos generados en tiempo de ejecución
+*.jpg
+*.png
+*.csv
+
+# Archivos de dependencias
+# Incluir o modificar esta sección según las dependencias utilizadas en tu proyecto
+# Ejemplo: si usas OpenCV, puedes agregar "*.so" para archivos compartidos
+opencv/build/
+
