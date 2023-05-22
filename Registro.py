@@ -10,7 +10,23 @@ def registro():
   pantallaRegistro = Toplevel(MainView()) #Esta pantalla es de un nivel superior a la principal #ToDO: arreglar multiple instancia de Vista Principal
   pantallaRegistro.title("Registro")
   pantallaRegistro.geometry("400x300")  #Asignamos el tamaño de la ventana
-
+     #--------- Empezaremos a crear las entradas ----------------------------------------
+  
+  usuario = StringVar()
+  password = StringVar()
+  # Instrucciones
+  Label(pantallaRegistro, text = "Registro facial: debe de asignar un usuario:").pack()
+  Label(pantallaRegistro, text = "Registro tradicional: debe asignar usuario y contraseña:").pack()
+  # Labels y Entradas de Texto para Usuario y Password
+  Label(pantallaRegistro, text = "Usuario * ").pack()  #Mostramos en la pantalla 1 el usuario
+  userEntrada = Entry(pantallaRegistro, textvariable = usuario) #Creamos un text variable para que el usuario ingrese la info
+  userEntrada.pack()
+  Label(pantallaRegistro, text = "Contraseña * ").pack()  #Mostramos en la pantalla 1 la contraseña
+  passwordEntrada = Entry(pantallaRegistro, textvariable = password) #Creamos un text variable para que el usuario ingrese la contra
+  passwordEntrada.pack()
+  Label(pantallaRegistro, text = "").pack()  #Dejamos un espacio para la creacion del boton
+  Button(pantallaRegistro, text = "Registro Tradicional", width = 15, height = 1, command ="registrar_usuario").pack()  #Creamos el boton ToDO: agregar método funcion tradicional
+    
     
   #------------ Vamos a crear el boton para hacer el registro facial --------------------
   Label(pantallaRegistro, text = "").pack()
