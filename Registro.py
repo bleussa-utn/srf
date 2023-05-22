@@ -1,6 +1,9 @@
 import cv2   
 from tkinter import *
 from MainView import MainView
+from matplotlib import pyplot
+from facenet_pytorch import MTCNN
+
 def registro():
   global pantallaRegistro
   global password
@@ -31,6 +34,22 @@ def registro():
   #------------ Vamos a crear el boton para hacer el registro facial --------------------
   Label(pantallaRegistro, text = "").pack()
   Button(pantallaRegistro, text = "Registro Facial", width = 15, height = 1, command = registro_facial).pack()
+
+def registrar_usuario():
+    usuario_info = usuario.get() #Obetnemos la informacion alamcenada en usuario
+    contra_info = password.get() #Obtenemos la informacion almacenada en password
+
+    archivo = open(usuario_info, "w") #Abriremos la informacion en modo escritura
+    archivo.write(usuario_info + "\n")   #escribimos la info
+    archivo.write(contra_info)
+    archivo.close()
+
+    #Limpiaremos los text variable
+    userEntrada.delete(0, END)
+    passwordEntrada.delete(0, END)
+
+    #Ahora le diremos al usuario que su registro ha sido exitoso
+    print("Registro exitoso")   
 
 def registro_facial():
     #Vamos a capturar el rostro
