@@ -1,6 +1,6 @@
 import cv2   
 from tkinter import *
-from MainView import MainView
+from Singleton import Singleton
 from matplotlib import pyplot
 from facenet_pytorch import MTCNN
 
@@ -10,7 +10,7 @@ def registro():
   global passwordEntrada
   global userEntrada
   global usuario
-  pantallaRegistro = Toplevel(MainView()) #Esta pantalla es de un nivel superior a la principal #ToDO: arreglar multiple instancia de Vista Principal
+  pantallaRegistro = Toplevel(Singleton.get_main_screen()) #Esta pantalla es de un nivel superior a la principal
   pantallaRegistro.title("Registro")
   pantallaRegistro.geometry("400x300")  #Asignamos el tamaño de la ventana
      #--------- Empezaremos a crear las entradas ----------------------------------------
