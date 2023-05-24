@@ -1,5 +1,6 @@
 from tkinter import *
 from Registro import registro
+from Login import login
 from Singleton import Singleton
 class MainView:
     def __init__(self):
@@ -13,15 +14,13 @@ class MainView:
         
         #--------------- Vamos a Crear los Botones -------------------------
         
-        # TODO: agregar metodo login y agregar metodo registro
+       
         Label(text = "", bg = "#f1f1f1").pack()  # Creamos el espacio entre el titulo y el primer boton
-        Button(text = "Iniciar Sesion", height = "3", width = "20", bg = "#ffffff", fg = "#0060ff", borderwidth = "0",  command = "", font = ("Verdana", 14)).pack()
+        Button(text = "Iniciar Sesion", height = "3", width = "20", bg = "#ffffff", fg = "#0060ff", borderwidth = "0",  command = login, font = ("Verdana", 14)).pack()
         Button(text = "Registro", height = "3", width = "20", bg = "#ffffff", fg = "#0060ff", borderwidth = "0", command = registro, font = ("Verdana", 14)).pack()
         Label(text = "", bg = "#f1f1f1").pack() # Creamos el espacio entre el primer boton y el segundo boton
         # Se carga la referencia del MainView en el Singleton        
         singleton_instance = Singleton.get_instance()  # Crea una instancia de Singleton
         singleton_instance.set_main_screen(pantalla)  # Llama al método set_main_screen()
         pantalla.mainloop()
-        
-MainView()
         
