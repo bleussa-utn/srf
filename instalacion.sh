@@ -24,7 +24,7 @@ if [ "$answer" = "si" ]; then
 
     # Verificar la respuesta del usuario
     if [ "$run" = "si" ]; then
-        python3 srf/Main.py
+        python3 srf/main.py
       
     else
         echo "Asistente de instalador finalizado"
