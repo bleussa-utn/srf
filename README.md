@@ -11,11 +11,7 @@
 - Ignacio Ramet
 
 ### Plataformas
-
-- [Notion](https://www.notion.so/bleussa/SRF-6b6e497701924db48724fc7e7fd09081)
-  En nuestro proyecto, utilizamos Notion para documentar las diferentes peticiones y respuestas que hemos realizado a diferentes IAs. Creamos una base de datos en Notion y registramos las interacciones con diferentes IAs y para documentar los resultados de cada petición.
-
-- [Jira]()
+- [Jira](https://bleussa-utn.atlassian.net/jira/software/projects/SRF/boards/1/backlog)
  plataforma colaborativa que utilizaremos para trabajar de manera colaborativo en nuestro proyecto trabajando en tableros, creando y asignando tareas, además de poder realizar un seguimiento del progreso, establecer fechas límite, comunicarse 
 
 ## Descripción
