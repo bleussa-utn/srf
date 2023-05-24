@@ -34,6 +34,28 @@ def login():
   Label(pantallaLogin, text = "").pack()
   Button(pantallaLogin, text = "Inicio de Sesion Facial", width = 20, height = 1, command = "login_facial").pack()  #TODO: agregar funciones para el login facial
 
+ #----------------- Funcion para autenticacion de usuario y contraseña --------------------------
+def verificacion_login():
+    log_usuario = userVerificacion.get()
+    log_contra = passwordVerificacion.get()
+
+    userEntrada.delete(0, END)
+    passwordEntrada.delete(0, END)
+
+    lista_archivos = os.listdir()   # Importamos la lista de archivos con la libreria os
+    if log_usuario in lista_archivos:   #Comparamos los archivos con el que nos interesa
+        archivo2 = open(log_usuario, "r")  #Abrimos el archivo en modo lectura
+        verificacion = archivo2.read().splitlines()  #leera las lineas dentro del archivo ignorando el resto
+        if log_contra in verificacion:
+            print("Inicio de sesion exitoso")
+           
+        else:
+            print("Contraseña incorrecta, ingrese de nuevo")
+            Label(pantallaLogin, text = "Contraseña Incorrecta", fg = "red", font = ("Calibri",11)).pack()
+    else:
+        print("Usuario no encontrado")
+        Label(pantallaLogin, text = "Usuario no encontrado", fg = "red", font = ("Calibri",11)).pack()
+
 def login_facial():
   #------------------Captura del rostro-----------------------------
   cap = cv2.VideoCapture(0)           	#Elegimos la camara con la que vamos a hacer la deteccion
