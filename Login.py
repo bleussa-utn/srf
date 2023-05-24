@@ -50,7 +50,36 @@ def login_facial():
   userEntrada.delete(0, END)   #Limpiamos los text variables
   passwordEntrada.delete(0, END)
 
-      #-------------------------- Funcion para comparar los rostros --------------------------------------------
+ #----------------- Funcion para guardar el rostro --------------------------
+    
+  def log_rostro(img, lista_resultados):
+        data = pyplot.imread(img)
+        for i in range(len(lista_resultados)):
+            cajas = lista_resultados[0][0]  # Obtener el primer array de la tupla
+            x1, y1, ancho, alto = cajas
+            y2 = y1 + alto
+            x2 = x1 + ancho
+            x1, y1, ancho, alto = int(x1), int(y1), int(ancho), int(alto)
+            x2, y2 = int(x2), int(y2)
+            cara_reg = data[y1:y2, x1:x2]
+            x2,y2 = x1 + ancho, y1 + alto
+            pyplot.subplot(1, len(lista_resultados), i+1)
+            pyplot.axis('off')
+            cara_reg = data[y1:y2, x1:x2]
+            cara_reg = cv2.resize(cara_reg,(150,200), interpolation = cv2.INTER_CUBIC) #Guardamos la imagen 150x200
+            cv2.imwrite(usuario_login+"LOG.jpg",cara_reg)
+            return pyplot.imshow(data[y1:y2, x1:x2])
+        pyplot.show()
+
+    #-------------------------- Detectamos el rostro-------------------------------------------------------
+    
+        img = usuario_login+"LOG.jpg"
+        pixeles = pyplot.imread(img)
+        detector = MTCNN()
+        caras = detector.detect(pixeles)
+        log_rostro(img, caras)
+
+#-------------------------- Funcion para comparar los rostros --------------------------------------------
   def orb_sim(img1,img2):
     orb = cv2.ORB_create()  #Creamos el objeto de comparacion
   
