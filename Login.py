@@ -51,7 +51,7 @@ def verificacion_login():
         verificacion = archivo2.read().splitlines()  #leera las lineas dentro del archivo ignorando el resto
         if log_contra in verificacion:
             print("Inicio de sesion exitoso")
-           
+            loginExitoso()
         else:
             print("Contraseña incorrecta, ingrese de nuevo")
             Label(pantallaLogin, text = "Contraseña Incorrecta", fg = "red", font = ("Calibri",11)).pack()
@@ -133,9 +133,7 @@ def login_facial():
             Label(pantallaLogin, text = "Inicio de Sesion Exitoso", fg = "green", font = ("Calibri",11)).pack()
             print("Bienvenido al sistema: ",usuario_login)
             print("Compatibilidad con la foto del registro: ",similitud)
-            Label(pantallaLogin, text="Inicio de Sesión Exitoso", fg="green", font=("Calibri",14)).pack()
-            pantallaLogin.destroy()
-           # loginExitoso()
+            loginExitoso()
         else:
               print("Rostro incorrecto, Cerifique su usuario")
               print("Compatibilidad con la foto del registro: ",similitud)
@@ -143,3 +141,12 @@ def login_facial():
     else:
       print("Usuario no encontrado")
       Label(pantallaLogin, text = "Usuario no encontrado", fg = "red", font = ("Calibri",11)).pack()
+
+def loginExitoso():
+    # Limpia la ventana
+    for widget in pantallaLogin.winfo_children():
+        widget.destroy()
+    # Crea el nuevo Label de éxito
+    Label(pantallaLogin, text="Inicio de Sesión Exitoso", fg="green", font=("Calibri",14)).pack()
+    pantallaLogin.update()  # Actualiza la ventana
+    pantallaLogin.after(1200, pantallaLogin.destroy())

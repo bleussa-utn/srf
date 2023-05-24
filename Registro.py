@@ -49,7 +49,8 @@ def registrar_usuario():
     passwordEntrada.delete(0, END)
 
     #Ahora le diremos al usuario que su registro ha sido exitoso
-    print("Registro exitoso")   
+    print("Registro exitoso")
+    registroExitoso()   
 
 def registro_facial():
     #Vamos a capturar el rostro
@@ -93,4 +94,14 @@ def registro_facial():
     pixeles = pyplot.imread(img)
     detector = MTCNN()
     caras = detector.detect(pixeles)
-    reg_rostro(img, caras)   
+    reg_rostro(img, caras)
+    registroExitoso()   
+
+def registroExitoso():
+    # Limpia la ventana
+    for widget in pantallaRegistro.winfo_children():
+        widget.destroy()
+    # Crea el nuevo Label de éxito
+    Label(pantallaRegistro, text="Registro Exitoso", fg="green", font=("Calibri",14)).pack()
+    pantallaRegistro.update()  # Actualiza la ventana
+    pantallaRegistro.after(1200, pantallaRegistro.destroy())
