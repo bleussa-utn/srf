@@ -94,4 +94,25 @@ def login_facial():
   if len(matches) == 0:
     return 0
   return len(regiones_similares)/len(matches)  #Exportamos el porcentaje de similitud
-    
+
+#---------------------------- Importamos las imagenes y llamamos la funcion de comparacion ---------------------------------
+print("Comparando")
+im_archivos = os.listdir()   # Importamos la lista de archivos con la libreria os
+if usuario_login+".jpg" in im_archivos:   # Comparamos los archivos con el que nos interesa
+    rostro_reg = cv2.imread(usuario_login+".jpg",0)     #Importamos el rostro del registro
+    rostro_log = cv2.imread(usuario_login+"LOG.jpg",0)  #Importamos el rostro del inicio de sesion
+    similitud = orb_sim(rostro_reg, rostro_log)
+    if similitud >= 0.90:
+      Label(pantallaLogin, text = "Inicio de Sesion Exitoso", fg = "green", font = ("Calibri",11)).pack()
+      print("Bienvenido al sistema: ",usuario_login)
+      print("Compatibilidad con la foto del registro: ",similitud)
+      Label(pantallaLogin, text="Inicio de Sesión Exitoso", fg="green", font=("Calibri",14)).pack()
+      pantallaLogin.destroy()
+      loginExitoso()
+    else:
+      print("Rostro incorrecto, Cerifique su usuario")
+      print("Compatibilidad con la foto del registro: ",similitud)
+      Label(pantallaLogin, text = "Incompatibilidad de rostros", fg = "red", font = ("Calibri",11)).pack()
+else:
+      print("Usuario no encontrado")
+      Label(pantallaLogin, text = "Usuario no encontrado", fg = "red", font = ("Calibri",11)).pack()
